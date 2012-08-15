@@ -22,7 +22,7 @@ module Jekyll
         choices = Dir['**/*'].reject { |x| File.symlink?(x) }
         if choices.include?(@file)
           source = File.read(@file)
-          if Pathname.new(@file).basename.to_s.scan("slim") != []
+          if Pathname.new(@file).extname =~ /slim/i
             puts Pathname.new(@file).basename
             slim = Tilt.new(@file).render
 
