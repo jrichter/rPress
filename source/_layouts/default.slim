@@ -1,0 +1,13 @@
+|{% capture root_url %}{{ site.root | strip_slash }}{% endcapture %}
+|{% include head.slim %}
+body
+  header
+    |{% include header.slim %}
+  nav
+    |{% include navigation.slim %}
+  div id="main"
+    div id="content"
+      |{{ content | expand_urls: root_url }}
+  footer
+    |{% include footer.slim %}
+  |{% include after_footer.slim %}

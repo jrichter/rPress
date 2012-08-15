@@ -1,0 +1,20 @@
+/The YAML header does not need to be here for this to render.
+doctype html
+html
+  head
+    title {% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}
+    meta name="author" content="{{ site.author }}"
+    meta name="keywords" content="{{ site.keywords }}"
+    /{% if page.keywords %}
+    meta name="keywords" content="{{ page.keywords }}"
+    /{% endif %}
+    link href="/stylesheets/tgs.css" media="screen, projection" rel="stylesheet" type="text/css"
+    link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css"
+    link  href="/stylesheets/print.css" media="print" rel="stylesheet" type="text/css"
+    /[ if lt IE 8 ]
+      link href='/stylessheets/ie.css' media='screen' rel='stylesheet' type='text/css'
+    link href="{{ root_url }}/favicon.png" rel="icon"
+    link href="{{ root_url }}/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css"
+    script src="{{ root_url }}/javascripts/modernizr-2.0.js"
+    script src="{{ root_url }}/javascripts/ender.js"
+    /{% include google_analytics.html %}
