@@ -2,10 +2,6 @@ module Jekyll
   require 'slim'
   require 'pathname'
   class IncludeTag < Liquid::Tag
-    def initialize(tag_name, file, tokens)
-      super
-      @file = file.strip
-    end
 
     def render(context)
       includes_dir = File.join(context.registers[:site].source, '_includes')
@@ -23,9 +19,8 @@ module Jekyll
         if choices.include?(@file)
           source = File.read(@file)
           if Pathname.new(@file).extname =~ /slim/i
-            puts Pathname.new(@file).basename
+            puts "Rendering... " + Pathname.new(@file).basename.to_s
             slim = Tilt.new(@file).render
-
             partial = Liquid::Template.parse(slim)
           else
             partial = Liquid::Template.parse(source)
